@@ -1,7 +1,9 @@
-﻿<nav class="navbar">
+﻿@inject JSService js;
+
+<nav class="navbar" id="navbar">
 	<div class="navbar-inner-container">
 		<div class="brand">
-			<a href="">Alexandros Petrou</a>
+			<a href="">Petrou</a>
 		</div>
 
 		<ul class="menu">
@@ -10,5 +12,17 @@
 			<li><a href="">Projects</a></li>
 			<li><a href="">Contact</a></li>
 		</ul>
+
+		<div class="menu-button" @onclick=onMenuButtonClick>
+			<i class="menu-button-icon fa-solid fa-bars"></i>
+		</div>
 	</div>
 </nav>
+
+@code {
+	void onMenuButtonClick() {
+		js.ToggleClassByClass("menu", "active");
+		js.ToggleClassByClass("menu-button-icon", "fa-bars");
+		js.ToggleClassByClass("menu-button-icon", "fa-xmark");
+	}
+}
