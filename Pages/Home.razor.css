@@ -1,0 +1,42 @@
+﻿.heading1 {
+    font-size: 75px;
+    color: white;
+}
+
+.heading2 {
+    font-size: 40px;
+    color: white;
+}
+
+.heading3 {
+    font-size: 27px;
+    color: white;
+}
+
+.name-container {
+    margin-left: 15%;
+    margin-top: 15%;
+}
+
+.home-container {
+    position: relative;
+}
+
+.home-section {
+    background: var(--secondary-color);
+    height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .heading1 {
+        font-size: 60px;
+    }
+    
+    .heading2 {
+        font-size: 25px;
+    }
+    
+    .heading3 {
+        font-size: 17px;
+    }
+}
