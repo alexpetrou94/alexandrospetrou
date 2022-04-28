@@ -23,6 +23,7 @@
     color: white;
     font-size: 2rem;
     text-decoration: none;
+    display: none; /*For now */
 }
 
 .menu {
@@ -41,7 +42,7 @@
 .menu li a{
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     transition: color 250ms ease;
 }
 

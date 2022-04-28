@@ -1,0 +1,50 @@
+.about-section {
+    background: var(--secondary-color);
+    height: 100vh;
+}
+
+.decor-blob {
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    padding: 250px;
+    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+    background-size: cover;
+    border-radius: 76% 24% 67% 33% / 30% 30% 70% 70%;
+}
+
+.about-container {
+    position: relative;
+    padding: 3rem;
+    display: inline-block;
+    z-index: 10;
+    display: flex;
+    align-items: stretch;
+    /* border: 1px solid var(--accent-color); */
+    margin-left: 15%;
+    margin-top: 10%;
+}
+
+
+.about-paragraph {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.about-paragraph p {
+    color:white;
+    font-size: 1.5rem;
+}
+
+.heading {
+    color: white;
+    font-size: 3rem;
+}
+
+
+.skills {
+    color:white;
+    font-size: 1.5rem;
+    flex-basis: 0;
+    flex-grow: 1;
+}
