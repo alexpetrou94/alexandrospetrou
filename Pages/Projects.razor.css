@@ -1,0 +1,32 @@
+.projects-section {
+    background: var(--secondary-color);
+    height: 100vh;
+}
+
+.projects-container {
+    position: relative;
+    padding: 3rem;
+    margin-left: 15%;
+    margin-top: 10%;
+}
+
+.coming-soon {
+    color:white;
+    font-size: 3rem;
+}
+
+.sub-coming-soon {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.github {
+    color: white;
+    font-size: 2rem;
+    transition: color 150ms;
+    cursor: pointer;
+}
+
+.github:hover {
+    color: var(--accent-color);
+}
