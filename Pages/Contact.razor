@@ -1,0 +1,36 @@
+@page "/contact"
+@using alexandrospetrou.Data; 
+
+<section class="contact-section section-with-nav">
+<div class="contact-container">
+<EditForm Model="@sendEmailModel" OnValidSubmit="@HandleValidSubmit">
+    <div class="inner-form">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        
+        <div class="both-flex">
+            <div class="left-flex">
+                <InputText class="input-control" placeholder="Name" @bind-Value="sendEmailModel.Name" />
+                <InputText class="input-control" placeholder="Email" @bind-Value="sendEmailModel.Email" />
+                <InputText class="input-control" placeholder="Subject" @bind-Value="sendEmailModel.Subject" />
+            </div>
+            <div class="right-flex">
+                <InputTextArea class="input-control" placeholder="Your message here..." @bind-Value="sendEmailModel.Message" />
+            </div>
+        </div>
+
+    <button class="submit-btn" type="submit">Submit</button>
+    </div>
+</EditForm> 
+</div>
+</section>
+
+
+@code {
+    private SendEmailModel sendEmailModel = new();
+
+    private void HandleValidSubmit() {
+        Console.WriteLine(sendEmailModel.Name);
+        Console.WriteLine(sendEmailModel.Message);
+    }
+}

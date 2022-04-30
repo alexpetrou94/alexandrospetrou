@@ -1,0 +1,84 @@
+.contact-section {
+    background: var(--secondary-color);
+    height: 100vh;
+}
+
+.contact-container {
+    position: relative;
+    padding: 3rem;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10%;
+}
+
+.input-label {
+    color: white;
+    font-size: 2rem;
+}
+
+
+/* ::deep is used to style child components */
+::deep .input-control {
+    padding: 10px;
+    margin: 10px 0;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
+    font-size: 1.5rem;
+}
+
+::deep .inner-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.both-flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.left-flex {
+    display:flex;
+    flex-direction: column;
+}
+
+::deep .right-flex TextArea.input-control {
+    height: 11.3rem;
+}
+
+::deep .validation-errors {
+    color: red;
+    font-size: 1.2rem;
+}
+
+.submit-btn {
+    background: var(--accent-color);
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 15rem;
+
+}
+
+.submit-btn:hover {
+    background: white;
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .both-flex {
+        flex-direction: column;
+    }
+
+    .contact-container {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
