@@ -15,8 +15,9 @@
 
 .name-container {
     margin-left: 15%;
+    margin-right: 15%;
     margin-top: 10%;
-    padding: 3rem;
+    padding: 1rem;
     display: inline-block;
 }
 
@@ -63,7 +64,7 @@
 
 @media (max-width: 768px) {
     .heading1 {
-        font-size: 60px;
+        font-size: 45px;
     }
     
     .heading2 {
@@ -73,4 +74,10 @@
     .heading3 {
         font-size: 17px;
     }
+
+    .home-container {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
 }
+

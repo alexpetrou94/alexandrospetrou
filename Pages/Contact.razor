@@ -1,5 +1,4 @@
 @page "/contact"
-@using alexandrospetrou.Data; 
 
 <section class="contact-section section-with-nav">
 <div class="contact-container">
@@ -30,7 +29,5 @@
     private SendEmailModel sendEmailModel = new();
 
     private void HandleValidSubmit() {
-        Console.WriteLine(sendEmailModel.Name);
-        Console.WriteLine(sendEmailModel.Message);
     }
 }

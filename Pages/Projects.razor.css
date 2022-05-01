@@ -7,6 +7,7 @@
     position: relative;
     padding: 3rem;
     margin-left: 15%;
+    margin-right: 15%;
     margin-top: 10%;
 }
 
@@ -29,4 +30,11 @@
 
 .github:hover {
     color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .projects-container {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }

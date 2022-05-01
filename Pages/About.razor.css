@@ -22,6 +22,7 @@
     align-items: stretch;
     /* border: 1px solid var(--accent-color); */
     margin-left: 15%;
+    margin-right: 15%;
     margin-top: 10%;
 }
 
@@ -47,4 +48,12 @@
     font-size: 1.5rem;
     flex-basis: 0;
     flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        margin-left: 5%;
+        margin-right: 5%;
+        flex-direction: column;
+    }
 }
