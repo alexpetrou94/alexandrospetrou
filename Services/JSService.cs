@@ -34,6 +34,10 @@ namespace alexandrospetrou.Services
             await JS.InvokeVoidAsync("removeClassByClass", elementClass, pClass);
         }
 
+        public async Task<bool> HasClassByID(string id, string pClass) {
+            return await JS.InvokeAsync<bool>("hasClassByID", id, pClass);
+        }
+
         public async void SendAlert(string msg) {
             await JS.InvokeVoidAsync("sendAlert", msg);
         }

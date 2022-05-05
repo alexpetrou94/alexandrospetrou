@@ -6,11 +6,11 @@
 			<a href="">Petrou</a>
 		</div>
 
-		<ul class="menu">
-			<li><a href="/home">Home</a></li>
-			<li><a href="/about">About</a></li>
-			<li><a href="/projects">Projects</a></li>
-			<li><a href="mailto:alexpetrou94@gmail.com?subject=alexandrospetrou.com contact">Contact</a></li>
+		<ul class="menu" id="nav-menu">
+			<li><a href="/home" @onclick=onMenuLinkClick>Home</a></li>
+			<li><a href="/about" @onclick=onMenuLinkClick>About</a></li>
+			<li><a href="/projects" @onclick=onMenuLinkClick>Projects</a></li>
+			<li><a href="mailto:alexpetrou94@gmail.com?subject=alexandrospetrou.com contact" @onclick=onMenuLinkClick>Contact</a></li>
 		</ul>
 
 		<div class="menu-button" @onclick=onMenuButtonClick>
@@ -24,5 +24,13 @@
 		js.ToggleClassByClass("menu", "active");
 		js.ToggleClassByClass("menu-button-icon", "fa-bars");
 		js.ToggleClassByClass("menu-button-icon", "fa-xmark");
+	}
+
+	async void onMenuLinkClick() {
+		bool isActive = await js.HasClassByID("nav-menu", "active");
+		
+		if(isActive) {
+			js.ToggleClassByID("nav-menu", "active");
+		}
 	}
 }

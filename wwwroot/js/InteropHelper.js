@@ -41,3 +41,8 @@ function removeClassByClass(elementClass, pClass) {
         elements[i].classList.remove(pClass);
     }
 }
+
+function hasClassByID(id, pClass) {
+    const element = document.getElementById(id);
+    return element.classList.contains(pClass);
+}

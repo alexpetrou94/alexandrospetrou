@@ -1,5 +1,6 @@
 .about-section {
     background: var(--secondary-color);
+    background-size: cover;
     height: 100vh;
 }
 
@@ -16,7 +17,7 @@
 .about-container {
     position: relative;
     padding: 3rem;
-    display: inline-block;
+    /* display: inline-block; */
     z-index: 10;
     display: flex;
     align-items: stretch;
@@ -55,5 +56,14 @@
         margin-left: 5%;
         margin-right: 5%;
         flex-direction: column;
+        padding: 1rem;
+    }
+
+    .decor-blob {
+        display: none;
+    }
+
+    .heading {
+        font-size: 2rem;
     }
 }
