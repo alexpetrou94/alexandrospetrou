@@ -1,0 +1,47 @@
+@inject JSService js;
+
+<div class="project-view-container card" @onclick=onClick>
+    <div class="title">
+        @Title
+    </div>
+
+    <div class="description">
+        @if(WorkInProgress) {
+            <div class="WIP-text">WORK IN PROGRESS</div>
+        }
+
+        else {
+            @Description
+        }
+
+    </div>
+
+    <div class="technologies">
+        @if(!WorkInProgress) {
+            @Technologies
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "";
+
+    [Parameter]
+    public string Description { get; set; } = "";
+
+    [Parameter]
+    public string Technologies { get; set; } = "";
+
+    [Parameter]
+    public string Url { get; set; } = "";
+
+    [Parameter]
+    public bool WorkInProgress { get; set; } = false;
+
+    public void onClick() {
+        if(Url != "") {
+            js.OpenUrl(Url);
+        }
+    }
+}

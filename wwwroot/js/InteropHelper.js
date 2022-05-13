@@ -46,3 +46,12 @@ function hasClassByID(id, pClass) {
     const element = document.getElementById(id);
     return element.classList.contains(pClass);
 }
+
+function openUrl(link, newTab = true) {
+    if (newTab) {
+            window.open(link, '_blank');
+            return;
+    }
+
+    window.open(link);
+}

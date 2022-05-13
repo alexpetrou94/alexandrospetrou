@@ -5,10 +5,13 @@
 
 .projects-container {
     position: relative;
-    padding: 3rem;
+    padding: 1.5rem;
     margin-left: 15%;
     margin-right: 15%;
     margin-top: 10%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
 }
 
 .coming-soon {
@@ -36,5 +39,6 @@
     .projects-container {
         margin-left: 5%;
         margin-right: 5%;
+        flex-direction: column;
     }
 }

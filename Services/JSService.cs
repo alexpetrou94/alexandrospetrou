@@ -1,9 +1,8 @@
 ﻿using Microsoft.JSInterop;
 
-namespace alexandrospetrou.Services
-{
-    public class JSService
-    {
+namespace alexandrospetrou.Services {
+    
+    public class JSService {
         private readonly IJSRuntime JS;
 
         public JSService(IJSRuntime js) {
@@ -40,6 +39,10 @@ namespace alexandrospetrou.Services
 
         public async void SendAlert(string msg) {
             await JS.InvokeVoidAsync("sendAlert", msg);
+        }
+
+        public async void OpenUrl(string url, bool newTab = true) {
+            await JS.InvokeVoidAsync("openUrl", url, newTab);
         }
     }
 }

@@ -1,0 +1,51 @@
+.title {
+    color: white;
+    font-size: 2.5rem;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.description {
+    color: #d1d5e2;
+    font-size: 1.3rem;
+    padding-bottom: 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.technologies {
+    color: #a4a8b2;
+    padding-bottom: 5px;
+    text-align: center;    
+}
+
+.project-view-container {
+    border-radius: 12px;
+    background-color: var(--primary-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card:hover > .title {
+    color: var(--accent-color);
+
+}
+
+.WIP-text {
+    color: var(--accent-color);
+    font-size: 2rem;
+    padding-top: 30px;
+}
+
+/* Why is there no parent selector? */
+

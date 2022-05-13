@@ -1,16 +1,30 @@
 @page "/projects"
+@namespace alexandrospetrou.Shared.Components.ProjectViewCard
 
 <section class="projects-section section-with-nav">
     <div class="projects-container">
-        <div class="coming-soon">
-            Coming soon! 
-        </div>
-        <div class="sub-coming-soon">
-            Unless this website counts as one? 
-            <a href="https://github.com/alexpetrou94/alexandrospetrou" class="github" target="_blank" rel="noopener noreferrer">
-                GitHub 
-                <i class="fa-brands fa-github"></i> 
-            </a>
-        </div>
+
+        <ProjectViewCard 
+        Title="Personal Website" 
+        Description="This website was built using ASP.NET Blazor. It is a single page application 
+        that allows you to view my projects and contact me. It was created to learn about the
+        ASP.NET framework and refresh my knowledge of the Html and CSS." 
+        Technologies="ASP.NET blazor C# html css"
+        Url="https://github.com/alexpetrou94/alexandrospetrou"/>
+
+        <ProjectViewCard 
+        Title="Geyser Workflow App" 
+        Description="3rd year university project that allows onsite plumbers to minimize
+        paperwork required to install or replace a geyser. Streamlining the process by
+        leveraging a mobile app" 
+        Technologies="ionic typescript firebase mobile"
+        Url="https://github.com/cos301-2019-se/Geyser-App"/>
+
+        <ProjectViewCard 
+        Title="Virtual In-Game Operation System" 
+        Description=""
+        Technologies="godot-engine"
+        Url=""
+        WorkInProgress="true"/>
     </div>
 </section>
