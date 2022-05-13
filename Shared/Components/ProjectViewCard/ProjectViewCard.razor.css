@@ -16,7 +16,8 @@
 .technologies {
     color: #a4a8b2;
     padding-bottom: 5px;
-    text-align: center;    
+    text-align: center;
+    word-spacing: 5px
 }
 
 .project-view-container {
