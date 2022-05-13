@@ -1,38 +1,35 @@
-﻿@inject JSService js;
-
-<nav class="navbar" id="navbar">
+﻿<nav class="navbar" id="navbar">
 	<div class="navbar-inner-container">
 		<div class="brand">
 			<a href="">Petrou</a>
 		</div>
 
-		<ul class="menu" id="nav-menu">
-			<li><a href="/home" @onclick=onMenuLinkClick>Home</a></li>
-			<li><a href="/about" @onclick=onMenuLinkClick>About</a></li>
-			<li><a href="/projects" @onclick=onMenuLinkClick>Projects</a></li>
-			<li><a href="mailto:alexpetrou94@gmail.com?subject=alexandrospetrou.com contact" @onclick=onMenuLinkClick>Contact</a></li>
+		<ul class="menu @MenuActiveClass" id="nav-menu">
+			<li><a href="/home" @onclick=OnMenuLinkClick>Home</a></li>
+			<li><a href="/about" @onclick=OnMenuLinkClick>About</a></li>
+			<li><a href="/projects" @onclick=OnMenuLinkClick>Projects</a></li>
+			<li><a href="mailto:alexpetrou94@gmail.com?subject=alexandrospetrou.com contact" @onclick=OnMenuLinkClick>Contact</a></li>
 		</ul>
 
-		<div class="menu-button" @onclick=onMenuButtonClick>
-			<i class="menu-button-icon fa-solid fa-bars"></i>
+		<div class="menu-button" @onclick=OnMenuButtonClick>
+			<i class="menu-button-icon fa-solid @IconClass"></i>
 		</div>
 	</div>
 </nav>
 
 @code {
-	void onMenuButtonClick() {
-		js.ToggleClassByClass("menu", "active");
-		js.ToggleClassByClass("menu-button-icon", "fa-bars");
-		js.ToggleClassByClass("menu-button-icon", "fa-xmark");
+	public string MenuActiveClass = "";
+	public string IconClass = "fa-bars";
+
+	void OnMenuButtonClick() {
+		MenuActiveClass = (MenuActiveClass == "") ? "active" : "";
+		IconClass = (IconClass == "fa-bars") ? "fa-xmark" : "fa-bars";
 	}
 
-	async void onMenuLinkClick() {
-		bool isActive = await js.HasClassByID("nav-menu", "active");
-		
-		if(isActive) {
-			js.ToggleClassByID("nav-menu", "active");
-			js.ToggleClassByClass("menu-button-icon", "fa-bars");
-			js.ToggleClassByClass("menu-button-icon", "fa-xmark");
+	void OnMenuLinkClick() {
+		if(MenuActiveClass == "active") {
+			MenuActiveClass = (MenuActiveClass == "") ? "active" : "";
+			IconClass = (IconClass == "fa-xmark") ? "fa-bars" : "fa-xmark";
 		}
 	}
 }
