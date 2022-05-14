@@ -1,4 +1,11 @@
-﻿.heading1 {
+﻿.home-section {
+    /* background: var(--secondary-color); */
+    background: url("/images/circle-background.svg");
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.heading1 {
     font-size: 75px;
     color: white;
 }
@@ -54,12 +61,6 @@
 .home-container {
     position: relative;
     
-}
-
-.home-section {
-    /* background: var(--secondary-color); */
-    background: url("/images/circle-background.svg");
-    height: 100vh;
 }
 
 @media (max-width: 768px) {
