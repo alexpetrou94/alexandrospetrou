@@ -28,7 +28,6 @@
     margin-top: 10%;
 }
 
-
 .about-paragraph {
     flex-basis: 0;
     flex-grow: 1;
@@ -43,7 +42,6 @@
     color: white;
     font-size: 3rem;
 }
-
 
 .skills {
     color:white;
