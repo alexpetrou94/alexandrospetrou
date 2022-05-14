@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,5 +22,10 @@ app.UseStaticFiles();
 app.UseRouting();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
+
+//allow for it to work on the Raspberry Pi4 with NGinX
+app.UseForwardedHeaders(new ForwardedHeadersOptions {
+    ForwardedHeaders = ForwardedHeaders.All
+});
 
 app.Run();
