@@ -1,0 +1,19 @@
+<div class="msg @(IsSender ? "left-msg" : "right-msg")">
+    <div class="msg-bubble">
+        <div class="msg-info">
+            <div class="msg-info-name">@Name</div>
+            <div class="msg-info-time">@Time</div>
+        </div>
+
+        <div class="msg-text">
+            @Message
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Message { get; set; } = "";
+    [Parameter] public bool IsSender { get; set; } = false;
+    [Parameter] public string Name { get; set; } = "NONAME";
+    [Parameter] public TimeOnly Time { get; set; } = new TimeOnly();
+}

@@ -6,7 +6,17 @@ ASP.NET framework and refresh my knowledge of the Html and CSS.
 
 ---
 
-## Todo:
+## Content:
+- [ ] Add AuraSvgExporter to project page
+
+
+## Polish
 
 - [ ] Change icon depending on browser theme
-- [ ] Research about SignalR working on the Raspberry Pi4
+- [ ] Make AuraSvgExporter README more presentable
+- [ ] Add CSS variables for chat UI
+
+## Learn
+- [ ] Research more about SignalR
+- [ ] Make SignalR work on the Raspberry Pi4
+- [ ] Figure out if its the router or ISP blocking external connections
