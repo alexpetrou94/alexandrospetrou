@@ -1,17 +1,18 @@
 @page "/chat"
 @using alexandrospetrou.Data;
+@inject ChatService chatService;
 
 <section class="chat-section">
     <div class="chat-container">
 
         <header class="chat-header">
             <div class="chat-header-title">
-                <i class="fas fa-comment-alt"></i> Chat
+                <i class="fas fa-comment-alt"></i> Chatting as @chatService.SessionName
             </div>
         </header>
 
         <main class="main-chat">
-            @foreach(ChatMessageModel message in messageList) {
+            @foreach(ChatMessageModel message in chatService.Messages) {
                 <MessageBubble
                     Message=@message.Message
                     IsSender=@message.IsSender
@@ -22,91 +23,37 @@
         </main>
 
         <div class="chat-inputarea">
-            <input type="text" class="chat-text-input" placeholder="Enter your message...">
-            <button class="chat-send-button">Send</button>
+            <input 
+            type="text" 
+            class="chat-text-input" 
+            @bind="currentMessage"
+            @bind:event="oninput"
+            @onkeypress="OnKeyPressed"
+            placeholder="Enter your message..."
+            >
+            <button class="chat-send-button" @onclick=SendMessage>Send</button>
         </div>
     </div>
 </section>
 
 
 @code {
-    private string currentMessage = ""; 
-    public List<ChatMessageModel> messageList = new List<ChatMessageModel> {
-            new ChatMessageModel {
-                Name = "BOT",
-                Message = "Hi, welcome to SimpleChat! Go ahead and send me a message. 😄",
-                Time = new TimeOnly(12, 15),
-                IsSender = false
-            },
-            new ChatMessageModel {
-                Name = "BOT",
-                Message = "HELLO WORLD 😄",
-                Time = new TimeOnly(12, 15),
-                IsSender = false
-            },
-            new ChatMessageModel {
-                Name = "BOT",
-                Message = "HELLO WORLD 😄",
-                Time = new TimeOnly(12, 15),
-                IsSender = false
-            },
-            new ChatMessageModel {
-                Name = "BOT",
-                Message = "HELLO WORLD 😄",
-                IsSender = false
-            },
-            new ChatMessageModel {
-                Name = "NOT BOT",
-                Message = "HELLO WORLD 😄",
-                IsSender = true
-            },
-            new ChatMessageModel {
-                Name = "NOT BOT",
-                Message = "HELLO WORLD 😄",
-                IsSender = true
-            },
-            new ChatMessageModel {
-                Name = "NOT BOT",
-                Message = "HELLO WORLD 😄",
-                IsSender = true
-            },
-            new ChatMessageModel {
-                Name = "NOT BOT",
-                Message = "HELLO WORLD 😄",
-                IsSender = true
-            },
-            new ChatMessageModel {
-                Name = "NOT BOT",
-                Message = "HELLO WORLD 😄",
-                IsSender = true
-            },
-            new ChatMessageModel {
-                Name = "NOT BOT",
-                Message = "HELLO WORLD 😄",
-                IsSender = true
-            },
-            new ChatMessageModel {
-                Name = "NOT BOT",
-                Message = "HELLO WORLD 😄",
-                IsSender = true
-            },
-            new ChatMessageModel {
-                Name = "NOT BOT",
-                Message = "HELLO WORLD 😄",
-                IsSender = true
-            },
-            new ChatMessageModel {
-                Name = "NOT BOT",
-                Message = "HELLO WORLD 😄",
-                IsSender = true
-            },
-            new ChatMessageModel {
-                Name = "NOT BOT",
-                Message = "HELLO WORLD 😄",
-                IsSender = true
-            },
-    };
+    private string currentMessage = "";
 
-    //Hello
+    protected override void OnInitialized() {
+        chatService.MessageListChanged += async () => {
+            await InvokeAsync(StateHasChanged);
+        };
+    }
+    
+    public void SendMessage() {
+        chatService.SendMessage(currentMessage);
+        currentMessage = "";
+    }
 
+    private void OnKeyPressed(KeyboardEventArgs e) {
+        if (e.Key == "Enter") {
+            SendMessage();
+        }
+    }
 }
