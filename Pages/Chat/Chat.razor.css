@@ -59,7 +59,6 @@
     background-color: var(--secondary-color);
 }
 
-
 .chat-text-input {
     flex: 1;
     background: var(--secondary-color-hover);

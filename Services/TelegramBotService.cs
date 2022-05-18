@@ -9,12 +9,12 @@ namespace alexandrospetrou.Services {
         public event EventHandler<MessageReceivedEventArgs>? MessageReceived ;
         
         private TelegramBotClient bot;
-        private string telegramChatID;
         private CancellationTokenSource cts;
+        private IConfiguration configuration;
 
-        public TelegramBotService(string apikey, string chatID) {
-            bot = new TelegramBotClient(apikey);
-            telegramChatID = chatID;
+        public TelegramBotService(IConfiguration config) {
+            configuration = config;
+            bot = new TelegramBotClient(configuration["telegram-apikey"]);
             cts = new CancellationTokenSource();
 
             ReceiverOptions receiverOptions = new ReceiverOptions {
@@ -28,7 +28,8 @@ namespace alexandrospetrou.Services {
         }
 
         public async Task<bool> SendMessage(string message) {
-            Message msgResult = await bot.SendTextMessageAsync(telegramChatID, message);
+            
+            Message msgResult = await bot.SendTextMessageAsync(configuration["telegram-chatid"], message);
             return msgResult.Text == message;
         }
 

@@ -8,11 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<ChatService>();
-builder.Services.AddSingleton<TelegramBotService>(
-    s => new TelegramBotService(
-        builder.Configuration["telegram-apikey"],
-        builder.Configuration["telegram-chatid"]
-));
+builder.Services.AddSingleton<TelegramBotService>();
 
 var app = builder.Build();
 

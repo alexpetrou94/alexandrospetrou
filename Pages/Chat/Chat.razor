@@ -1,4 +1,5 @@
 @page "/chat"
+@implements IDisposable
 @using alexandrospetrou.Data;
 @inject ChatService chatService;
 
@@ -41,14 +42,20 @@
     private string currentMessage = "";
 
     protected override void OnInitialized() {
-        chatService.MessageListChanged += async () => {
-            await InvokeAsync(StateHasChanged);
-        };
+        chatService.MessageListChanged += OnStateHasChanged;
     }
     
     public void SendMessage() {
         chatService.SendMessage(currentMessage);
         currentMessage = "";
+    }
+
+    public async void OnStateHasChanged() {
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose() {
+       chatService.MessageListChanged -= OnStateHasChanged;
     }
 
     private void OnKeyPressed(KeyboardEventArgs e) {
