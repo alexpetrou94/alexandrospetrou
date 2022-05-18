@@ -8,10 +8,12 @@ namespace alexandrospetrou.Services {
         public event Action? MessageListChanged;
 
         private TelegramBotService botService { get; set; }
-        
+        private static HashSet<string> chatSessionNames = new HashSet<string>();
+
         public ChatService(TelegramBotService bot) {
             botService = bot;
             SessionName = createSessionName();
+            chatSessionNames.Add(SessionName);
             botService.MessageReceived += OnMessageReceived;
         }
 
@@ -28,6 +30,10 @@ namespace alexandrospetrou.Services {
                 Name = "Alexandros",
                 IsSender = false
             };
+
+            if(args.Edited) {
+                messageModel.Message += "*";
+            }
                     
             Messages.Add(messageModel);
             onMessageListChanged();
@@ -55,6 +61,7 @@ namespace alexandrospetrou.Services {
 
         public void Dispose() {
             botService.MessageReceived -= OnMessageReceived;
+            chatSessionNames.Remove(SessionName);
         }
 
         private bool isValidMessage((string, string) messageParts) {
@@ -92,10 +99,15 @@ namespace alexandrospetrou.Services {
         private string createSessionName() {
             Random rng = new Random();
             string[] animals = { "dog", "cat", "bird", "fish", "lizard", "turtle", "doe", "horse", "panda", "zebra" };
-            string choosenAnimal = animals[rng.Next(animals.Length)];
-            string choosenNumber = rng.Next(1, 100).ToString();
+            string sessionName = "";
+
+            do {
+                string choosenAnimal = animals[rng.Next(animals.Length)];
+                string choosenNumber = rng.Next(1, 100).ToString();
+                sessionName = $"{choosenAnimal}#{choosenNumber}";
+            } while (chatSessionNames.Contains(sessionName));
             
-            return $"{choosenAnimal}#{choosenNumber}";
+            return sessionName;
         }
     }
 }

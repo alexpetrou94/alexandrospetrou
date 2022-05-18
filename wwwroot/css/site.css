@@ -1,8 +1,20 @@
 :root {
     --top-page-padding: 4rem;
-    --primary-color: #3c2c66;
-    --secondary-color: hsl(207, 100%, 6%);
+
+    --primary-color: hsl(257, 40%, 30%);
+    --secondary-color: hsl(207, 100%, 5%);
     --accent-color: hsl(347, 100%, 50%);
+
+    --primary-color-hover: hsl(257, 40%, 50%);
+    --secondary-color-hover: hsl(207, 100%, 15%);
+    --accent-color-hover: hsl(347, 100%, 30%);
+
+    --chat-border: 2px solid var(--accent-color);
+    --chat-bubble-left: hsl(244, 40%, 60%);
+    --chat-bubble-left: var(--secondary-color-hover);
+    --chat-bubble-right: var(--primary-color);
+    --chat-bubble-right: var(--secondary-color-hover);
+
 }
 
 * {
@@ -14,11 +26,6 @@
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
-.section-with-nav {
-    padding-top: var(--top-page-padding);
-}
-
 
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;

@@ -1,5 +1,6 @@
 .contact-section {
     background: var(--secondary-color);
+    padding-top: var(--top-page-padding);
     min-height: 100vh;
     overflow: auto;
 }

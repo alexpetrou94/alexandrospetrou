@@ -31,19 +31,23 @@
     gap: 25px;
 }
 
-.menu li {
+.menu li{
     list-style: none;
 }
 
-.menu li a:hover {
+.menu li ::deep a:hover {
     color: var(--accent-color);
 }
 
-.menu li a{
+.menu li ::deep a {
     color: white;
     text-decoration: none;
     font-size: 1.8rem;
     transition: color 250ms ease;
+}
+
+.menu li ::deep a.active {
+    color: var(--accent-color);
 }
 
 .menu-button {
@@ -86,7 +90,7 @@
     }
 
 
-    .menu li a{
+    .menu li ::deep a{
         color: white;
         font-size: 2.0rem;
     }

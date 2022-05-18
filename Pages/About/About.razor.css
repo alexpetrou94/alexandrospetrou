@@ -1,5 +1,6 @@
 .about-section {
     background: var(--secondary-color);
+    padding-top: var(--top-page-padding);
     background-size: cover;
     min-height: 100vh;
     overflow: auto;

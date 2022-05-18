@@ -13,9 +13,9 @@ ASP.NET framework and refresh my knowledge of the Html and CSS.
 
 - [ ] Change icon depending on browser theme
 - [ ] Make AuraSvgExporter README more presentable
-- [ ] Add CSS variables for chat UI
+- [x] Add CSS variables for chat UI
 - [x] Make TelegramClient a service
-- [ ] Make unsent messages distict with a different color
+- [ ] Make unsent messages distinct with a different color
 
 ## Learn
 - [ ] Research more about SignalR

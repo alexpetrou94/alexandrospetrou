@@ -43,16 +43,27 @@ namespace alexandrospetrou.Services {
         }
 
         private Task updateHandler(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken) {
-            if(update.Type == UpdateType.Message || update.Type == UpdateType.EditedMessage) {
+            if(update.Type == UpdateType.Message) {
                 string msg = update.Message?.Text == null ? "" : update.Message.Text;
                 MessageReceivedEventArgs eventArgs = new MessageReceivedEventArgs();
                 eventArgs.Message = msg;
-                eventArgs.Edited = update.Type == UpdateType.EditedMessage;
                 OnMessageReceived(this, eventArgs);
+
+                return Task.CompletedTask;
+            }
+
+            else if(update.Type == UpdateType.EditedMessage) {
+                string msg = update.EditedMessage?.Text == null ? "" : update.EditedMessage.Text;
+                MessageReceivedEventArgs eventArgs = new MessageReceivedEventArgs();
+                eventArgs.Message = msg;
+                eventArgs.Edited = true;
+                OnMessageReceived(this, eventArgs);
+
                 return Task.CompletedTask;
             }
 
             Console.WriteLine("Unknown message type recieved.");
+            
             return Task.CompletedTask;
         }
 

@@ -1,5 +1,6 @@
 ﻿.home-section {
     /* background: var(--secondary-color); */
+    padding-top: var(--top-page-padding);
     background: url("/images/circle-background.svg");
     min-height: 100vh;
     overflow: auto;

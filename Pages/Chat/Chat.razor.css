@@ -2,10 +2,6 @@
     background: var(--secondary-color);
     padding-top: var(--top-page-padding);
     min-height: 100vh;
-
-    --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    --msger-bg: #fff;
-    --border: 2px solid #ddd;
 }
 
 .chat-container {
@@ -24,54 +20,76 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: var(--border);
-    background: #eee;
-    color: #666;
+    border-bottom: var(--chat-border);
+    color: white;
+    font-size: 1.4rem;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    background-color: var(--secondary-color);
 }
 
 .main-chat {
     flex: 1;
     overflow-y: scroll;
     padding: 10px;
-    background: var(--msger-bg);
+    background: var(--secondary-color);
+}
+
+.main-chat::-webkit-scrollbar {
+    background-color: var(--secondary-color);
+    width: 10px;
+}
+
+.main-chat::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 12px;
+}
+
+.main-chat::-webkit-scrollbar-thumb:hover {
+    border: 2px solid var(--accent-color-hover);
 }
 
 .chat-inputarea {
     display: flex;
     padding: 10px;
-    border-top: var(--border);
-    background: #eee;
+    border-top: var(--chat-border);
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
+    background-color: var(--secondary-color);
 }
 
 
 .chat-text-input {
     flex: 1;
-    background: #ddd;
+    background: var(--secondary-color-hover);
     padding: 10px;
     border: none;
     border-radius: 12px;
     font-size: 1rem;
+    outline: none;
+    color: white;
+}
+
+.chat-text-input::placeholder {
+    color: hsl(0, 0%, 70%);
 }
 
 .chat-send-button {
     margin-left: 10px;
-    background: rgb(0, 196, 65);
-    color: #fff;
+    background: var(--accent-color);
+    color: white;
     font-weight: bold;
     padding: 10px;
     border: none;
     border-radius: 12px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.23s;
+    transition: background 0.25s;
 }
 
 .chat-send-button:hover {
-    background: rgb(0, 180, 50);
+    background: var(--accent-color-hover);
 }
 
 @media (max-width: 768px) {
@@ -93,5 +111,9 @@
     .chat-inputarea {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+    }
+
+    .chat-header {
+        font-size: 1.2rem;
     }
 }

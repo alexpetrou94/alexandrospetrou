@@ -1,4 +1,5 @@
 .projects-section {
+    padding-top: var(--top-page-padding);
     background: var(--secondary-color);
     min-height: 100vh;
     overflow: auto;

@@ -8,7 +8,8 @@
     max-width: 450px;
     padding: 15px;
     border-radius: 15px;
-    background: #ececec;
+    background: var(--chat-bubble-left);
+    color: white;
 }
 
 .msg-info {
@@ -32,6 +33,6 @@
 }
 
 .right-msg .msg-bubble {
-    background: #579ffb;
-    color: #fff;
+    background: var(--chat-bubble-right);
+    color: white;
 }
