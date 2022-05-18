@@ -2,26 +2,26 @@
 @implements IDisposable
 @using alexandrospetrou.Data;
 @inject ChatService chatService;
+@inject IJSRuntime JS;
 
 <section class="chat-section">
     <div class="chat-container">
 
         <header class="chat-header">
             <div class="chat-header-title">
-                <i class="fas fa-comment-alt"></i> Chatting as @chatService.SessionName
+                <i class="fa-solid fa-comments"></i> Chatting as @chatService.SessionName
             </div>
         </header>
 
-        <main class="main-chat">
+        <div class="main-chat" @ref="ChatContainer">
             @foreach(ChatMessageModel message in chatService.Messages) {
                 <MessageBubble
-                    Message=@message.Message
-                    IsSender=@message.IsSender
-                    Time=@message.Time
-                    Name=@message.Name 
-                />
+                Message=@message.Message
+                IsSender=@message.IsSender
+                Time=@message.Time
+                Name=@message.Name/>
             }
-        </main>
+        </div>
 
         <div class="chat-inputarea">
             <input 
@@ -30,32 +30,38 @@
             @bind="currentMessage"
             @bind:event="oninput"
             @onkeypress="OnKeyPressed"
-            placeholder="Enter your message..."
-            >
-            <button class="chat-send-button" @onclick=SendMessage>Send</button>
+            placeholder="Enter your message...">
+            <button class="chat-send-button" @onclick="SendMessage">Send</button>
         </div>
     </div>
 </section>
 
 
 @code {
+    public ElementReference ChatContainer { get; set; }
+    
     private string currentMessage = "";
 
-    protected override void OnInitialized() {
-        chatService.MessageListChanged += OnStateHasChanged;
-    }
-    
     public void SendMessage() {
         chatService.SendMessage(currentMessage);
         currentMessage = "";
     }
 
     public async void OnStateHasChanged() {
+        bool isAtBottom = await JS.InvokeAsync<bool>("isAtBottom", ChatContainer);
         await InvokeAsync(StateHasChanged);
+
+        if(isAtBottom) {
+            await JS.InvokeVoidAsync("scrollToBottom", ChatContainer);
+        }
     }
 
     public void Dispose() {
        chatService.MessageListChanged -= OnStateHasChanged;
+    }
+
+    protected override void OnInitialized() {
+        chatService.MessageListChanged += OnStateHasChanged;
     }
 
     private void OnKeyPressed(KeyboardEventArgs e) {
