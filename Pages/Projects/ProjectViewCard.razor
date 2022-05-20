@@ -6,19 +6,16 @@
     </div>
 
     <div class="description">
-        @if(WorkInProgress) {
-            <div class="WIP-text">WORK IN PROGRESS</div>
-        }
-
-        else {
-            @Description
-        }
-
+        @Description
     </div>
 
     <div class="technologies">
         @if(!WorkInProgress) {
             @Technologies
+        }
+
+        else { 
+            <div class="WIP-text">WORK IN PROGRESS</div>
         }
     </div>
 </div>

@@ -1,8 +1,18 @@
+.project-view-container {
+    border-radius: 12px;
+    background-color: var(--secondary-color-hover);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+}
+
 .title {
     color: white;
-    font-size: 2.5rem;
+    font-size: 2rem;
     padding-bottom: 10px;
     text-align: center;
+    transition: color 0.2s;
 }
 
 .description {
@@ -11,21 +21,16 @@
     padding-bottom: 20px;
     text-align: center;
     flex-grow: 1;
+    padding-top: 5px;
 }
 
 .technologies {
     color: #a4a8b2;
     padding-bottom: 5px;
     text-align: center;
-    word-spacing: 5px
-}
-
-.project-view-container {
-    border-radius: 12px;
-    background-color: var(--primary-color);
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
+    word-spacing: 5px;
+    padding-top: 5px;
+    border-top: 2px solid var(--accent-color);
 }
 
 .card {
@@ -39,14 +44,16 @@
 
 .card:hover > .title {
     color: var(--accent-color);
-
 }
 
 .WIP-text {
     color: var(--accent-color);
-    font-size: 2rem;
-    padding-top: 30px;
 }
 
 /* Why is there no parent selector? */
 
+@media (max-width: 768px) {
+    .project-view-container {
+        min-width: 0;
+    }
+}

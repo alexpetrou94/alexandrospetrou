@@ -86,9 +86,8 @@
     }
 
     .menu-button-icon.fa-xmark, .menu-button-icon.fa-bars {
-        font-size: 1.8em;
+        font-size: 1.8rem;
     }
-
 
     .menu li ::deep a{
         color: white;
