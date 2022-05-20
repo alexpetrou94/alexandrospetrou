@@ -17,7 +17,7 @@
             @foreach(ChatMessageModel message in chatService.Messages) {
                 <MessageBubble
                 Message=@message.Message
-                IsSender=@message.IsSender
+                MessageType=@message.MessageType
                 Time=@message.Time
                 Name=@message.Name/>
             }

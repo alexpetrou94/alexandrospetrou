@@ -9,6 +9,7 @@ namespace alexandrospetrou.Services {
 
         private TelegramBotService botService { get; set; }
         private static HashSet<string> chatSessionNames = new HashSet<string>();
+        private const string COULD_NOT_SEND_ERROR = "Could not send message, please try again.";
 
         public ChatService(TelegramBotService bot) {
             botService = bot;
@@ -28,7 +29,7 @@ namespace alexandrospetrou.Services {
                 Message = messageParts.Item2,
                 Time = TimeOnly.FromDateTime(DateTime.Now),
                 Name = "Alexandros",
-                IsSender = false
+                MessageType = "right-msg"
             };
 
             if(args.Edited) {
@@ -44,19 +45,23 @@ namespace alexandrospetrou.Services {
                 return;
             }
 
+            if(isCommand(message)) {
+                handleCommand(message);
+                return;
+            }
+
             bool isMessageSent = await botService.SendMessage($"{SessionName}: {message}");
 
-            if(isMessageSent) {
-                ChatMessageModel messageModel = new ChatMessageModel {
-                    Message = message,
+            ChatMessageModel messageModel = new ChatMessageModel {
                     Time = TimeOnly.FromDateTime(DateTime.Now),
-                    Name = SessionName,
-                    IsSender = true
-                };
+                    Name = SessionName
+            };
 
-                Messages.Add(messageModel);
-                onMessageListChanged();
-            }
+            messageModel.Message = isMessageSent ? message : COULD_NOT_SEND_ERROR;
+            messageModel.MessageType = isMessageSent ? "left-msg" : "error-msg";
+            
+            Messages.Add(messageModel);
+            onMessageListChanged();
         }
 
         public void Dispose() {
@@ -70,6 +75,15 @@ namespace alexandrospetrou.Services {
 
         private bool isCommand(string message) {
             return message.Trim().StartsWith("/");
+        }
+
+        private void handleCommand(string command) {
+            command = command.Trim().ToLower();
+            
+            if(command == "/clear") {
+                Messages.Clear();
+                onMessageListChanged();
+            }
         }
 
         private (string, string) parseMessage(string message) {
