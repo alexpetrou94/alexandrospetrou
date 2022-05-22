@@ -1,0 +1,22 @@
+.logo-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.text {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.fontawesome-logo {
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.hover-icon:hover {
+    color: var(--accent-color);
+    cursor: pointer;
+}

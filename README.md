@@ -5,16 +5,3 @@ that allows you to view my projects and contact me. It was created to learn abou
 ASP.NET framework and refresh my knowledge of Html and CSS.
 
 ---
-
-## Content
-- [x] ~
-
-## Polish
-- [ ] Change icon depending on browser theme
-- [ ] Create scalable way to add/remove commands with descriptions and parameters
-
-## Learn
-- [ ] Research more about SignalR
-- [ ] Make SignalR work on the Raspberry Pi4
-- [ ] Figure out if its the router or ISP blocking external connections
-- [ ] Learn how to dynamically add components programmically (see [Dynamic Components](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/dynamiccomponent?view=aspnetcore-6.0))

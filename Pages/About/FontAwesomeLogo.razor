@@ -1,0 +1,28 @@
+@inject IJSRuntime js;
+
+<div class="fontawesome-container">
+    <div class="logo-text-container">
+        <i class="@CSSClass @FontAwesomeCSS fontawesome-logo" @onclick="OnClick"></i>
+        <span class="text">@Text</span>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Text { get; set; } = "";
+    [Parameter] public string FontAwesomeCSS { get; set; } = "";
+    [Parameter] public string Url { get; set; } = "";
+
+    private string CSSClass { get; set; } = "";
+
+    protected override void OnInitialized() {
+        if(Url != "") {
+            CSSClass = "hover-icon";
+        }
+    }
+
+    public async void OnClick() {
+        if(Url != "") {
+            await js.InvokeVoidAsync("open", Url, "_blank");
+        }
+    }
+}

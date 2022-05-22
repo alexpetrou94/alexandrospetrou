@@ -97,6 +97,11 @@ namespace alexandrospetrou.Services {
                 string combinedMessage = "";
 
                 for(int i = 1; i < messageParts.Length; i++) {
+                    if(i != 1) {
+                        combinedMessage += ":" + messageParts[i];
+                        continue;
+                    }
+
                     combinedMessage += messageParts[i];
                 }
 
