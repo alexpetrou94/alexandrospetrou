@@ -73,7 +73,7 @@
         width: 100%;
         top: 0;
         right: -100%;
-        background: var(--primary-color);
+        background: var(--secondary-color-hover);
         flex-direction: column;
         align-items: center;
         padding-top: 15%;
