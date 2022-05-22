@@ -8,7 +8,7 @@
 
 #navbar.sticky {
     padding: 10px 0;
-    background: var(--primary-color);
+    background: var(--seconadry-color-hover);
 }
 
 .navbar-inner-container {
